@@ -6,22 +6,30 @@
 	<title>Registro estudiante</title>
 </head>
 <body>
-	<div class="container" align="center">
+
+	<div class="container">
+  <div class="jumbotron">
+    <h1><b>Practica de JavaScript utilizando Bootstrap</b></h1>      
+  </div> 
+</div>
+
+	<form role="form" class="container">
+	<div class="form-group" align="center">
 	<h2> Formulario de registro de estudiantes</h2>
-	<div class="panel panel-default">
-		<div class="panel-body"  align="center">
+	<div class="panel panel-default">	
+		<div class="panel-body" >
 		<label>	Codigo estudiante</label><br>
-		<input type="text" id="idestudiante" name="Id_estudiante" placeholder="01-0101"></br>
+		<input type="text" id="idestudiante" name="Id_estudiante" class="form-control" placeholder="01-0101"></br>
 		<label>Nombre estudiante</label><br>
-		<input type="text" id="nestudiante" name="Nestudiante" placeholder="Jose Armirante"></br>
+		<input type="text" id="nestudiante" name="Nestudiante" class="form-control"  placeholder="Jose Armirante"></br>
 		<label>Matricula estudiante</label><br>
-		<input type="text" id="mestudiante" name="Mestudiante" placeholder="2008-0104"></br>
+		<input type="text" id="mestudiante" name="Mestudiante" class="form-control" placeholder="2008-0104"></br>
 	    <label>Identificacion</label><br>
-		<input type="text" id="idenestudiante" name="Idenestudiante" placeholder="122-20201525-5"></br>
+		<input type="text" id="idenestudiante" name="Idenestudiante" class="form-control" placeholder="122-20201525-5"></br>
 		<label>Telefono</label><br>
-		<input type="text" id="testudiante" name="Testudiante" placeholder="829-920-1399"></br>
+		<input type="text" id="testudiante" name="Testudiante" class="form-control" placeholder="829-920-1399"></br>
 		<label>Email</label><br>
-		<input type="text" id="emestudiante" name="Emestudiante" placeholder="Patrick@prueba.com"></br>
+		<input type="text" id="emestudiante" name="Emestudiante" class="form-control"  placeholder="Patrick@prueba.com"></br>
 
 
 <button onclick="presentar();" class="button"> Imprimir datos</button>
@@ -29,5 +37,15 @@
 </div>
 </div>
 </div>
+<p>
+	
+</p>
+
+<table class="table" id="estudiantetable" style="I">
+	
+
+</table>
+</form>
+
 </body>
 </html>
