@@ -1,6 +1,7 @@
+ 
 var estudiante = function(){
 	var self = this;
-     	self.idestudiante="";
+     	self.idestudiant="";
      	self.nombre="";
         self.matricula="";
         self.identification="";
@@ -9,47 +10,90 @@ var estudiante = function(){
     };
 
 
-			function presentar(){
-			var	est1 = new estudiante();
-			est1.idestudiante=document.getElementById("idestudiante").value;
-			est1.nombre=document.getElementById("nestudiante").value;
-			est1.matricula=document.getElementById("mestudiante").value;
-			est1.identification=document.getElementById("idenestudiante").value;
-			est1.telefono=document.getElementById("testudiante").value;
-			est1.email=document.getElementById("emestudiante").value;
-			console.log(est1);
-}
+function agregarestudiante(est){
+	var	rowEstudiante = "<tr>"
+	+"<td>"+"<td>"+"<input type=\"checkbox\" id=\"checkbox1\" value=\"Elminiar\" class=\"check\">"+"</td>"
+	+"<td>"+ est.idestudiant
+	+"<td>" +est.nombre
+	+"<td>" +est.matricula
+	+"<td>" +est.identification
+	+"<td>" +est.telefono
+	+"<td>" +est.email
+	$("table").append (rowEstudiante);
 
-//creando y capturando datos
-
-	function tabla(est1){
-
-		var	table = document.getElementById("estudiantetable");
-		var tr =document.createElement("tr");
-		var	tdid = document.createElement("td");
-		var	tdnombre = document.createElement("td");
-		var tdidentificacion=document.createElement("td");
-		var	tdmatricula = document.createElement("td");
-		var	tdtelefono = document.createElement("td");
-		var	tdemail= document.createElement("td");
+/**/
+};
 
 
 
-		var	txtid= document.createTextNode(est1.idestudiante);
-		var	txtnombre= document.createTextNode(est1.nombre);
-		var	txtidentificacion= document.createTextNode(est1.identificacion);
-		var	txtmatricula= document.createTextNode(est1.matricula);
-		var	txttelefono= document.createTextNode(est1.telefono);
-		var	txtemail= document.createTextNode(est1.email);
+ $(document).ready(function(){
+ 	myStorage = window.localStorage;
 
+ 	var dbestudiante = myStorage.getItem("estudiantes");
+ 		
+ 		if (dbestudiante != null){
+ 			estudiantes = JSON.parse (dbestudiante);
+ 			$.each(estudiantes, function(i,v){
+ 				agregarestudiante(v);
+ 			});
+};
+    		$("#agregar-estudiante").click(function(){
+    			var	idestu = $('#idestudiante').val();
+    			var	nameestu = $('#nestudiante').val();
+    			var	mestu = $('#mestudiante').val();
+    			var	identi = $('#idenestudiante').val();
+    			var	telestu = $('#testudiante').val();
+    			var	emestu = $('#emestudiante').val();
 
-		tdid.appendChild(txtid);
-		tr.appendChild(tdid);
-		tr.appendChild(tdnombre);
-		tr.appendChild(tdidentificacion);
-		tr.appendChild(tdmatricula);
-		tr.appendChild(tdtelefono);
-		tr.appendChild(tdemail);
-		 table.appendChild(tr);
+    			var est = new	estudiante();
+
+    			est.idestudiant = idestu;
+				est.nombre = nameestu;
+    			est.matricula = mestu;
+    			est.identificacion = identi;
+    			est.telefono = telestu;
+    			est.email = emestu;
+    			
+    			agregarestudiante(est);
+    			guardardb(est);
 		
-	}
+
+       		});
+  });
+
+
+//comprobar si esl checkbox esta seleccionado
+$(document).ready(function(){  
+  
+    $("#checkbox_comprobar").click(function() {  
+        if($("#checkbox1").is(':checked')) {  
+            localStorage.removeItem("estudiantes");
+        } else {  
+            alert("Debes seleccionar un estudiante");  
+        }  
+    });  
+  
+});  
+
+
+$("#checkbox_comprobar").click(function() {
+    
+});
+
+
+ function guardardb(est){
+
+ 		myStorage = window.localStorage;
+
+ 		var estudiantes =[];
+
+ 		var dbestudiante = myStorage.getItem("estudiantes");
+ 		if (dbestudiante != null){
+ 			estudiantes = JSON.parse (dbestudiante);
+
+ 		}
+		estudiantes.push(est);
+		myStorage.setItem("estudiantes",JSON.stringify(estudiantes));
+
+
+ };

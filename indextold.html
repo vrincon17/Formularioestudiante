@@ -2,8 +2,6 @@
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="resources/css/bootstrap.css">
-
-	<script type="text/javascript" src="resources/js/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript" src="resources/js/prueba.js"></script>
 	<title>Registro estudiante</title>
 </head>
@@ -15,7 +13,7 @@
   </div> 
 </div>
 
-	<div class="container">
+	<form role="form" class="container">
 	<div class="form-group" align="center">
 	<h2> Formulario de registro de estudiantes</h2>
 	<div class="panel panel-default">	
@@ -34,22 +32,20 @@
 		<input type="text" id="emestudiante" name="Emestudiante" class="form-control"  placeholder="Patrick@prueba.com"></br>
 
 
-
-<!--<button onclick="tabla();" class="button"> Generar tabla</button>-->
+<button onclick="presentar();" class="button"> Imprimir datos</button>
+<button onclick="tabla();" class="button"> Generar tabla</button>
+</div>
 </div>
 </div>
 <p>
 	
 </p>
 
-
-<button type="button" class="btn btn-success" id="agregar-estudiante"> Guardar</button>
-<button type="button" class="btn btn-danger" id="checkbox_comprobar"> Borrarr</button>
-</div>
-<table class="table table-bordered" id="estudiantetable" >
+<table class="table" id="estudiantetable" style="I">
 	
 
 </table>
-</div>
+</form>
+
 </body>
 </html>
